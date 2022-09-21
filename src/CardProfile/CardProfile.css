@@ -1,0 +1,94 @@
+.profileContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    /* font-family: 'Montserrat', semi-bold;
+    font-weight: 600; */
+}
+
+.imageContainer{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   padding-top: 30px;
+   padding-bottom: 10px;
+}
+
+.profileImage{
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.profileName{
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.companyName {
+    font-weight: 600;
+}
+.designation {
+    font-weight: 600;
+}
+
+.iconsContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons{
+    padding-top: 24px;
+    display: flex;
+    column-gap: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+    color: white
+}
+
+a {
+    color:white;
+    text-decoration: none;
+}
+
+.outerButton{
+    background-color: #e2e2e2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.buttonContainer{
+    background-color: black;
+    width:90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    height: 50px;
+}
+
+.poweredBy{
+    padding-top: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.iconTitle{
+    font-size: 0.6rem;
+}
+
+.contactTitle {
+    display: flex;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
