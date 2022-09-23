@@ -64,6 +64,8 @@ a {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    
+    padding-top: 32px;
 }
 
 .buttonContainer{
