@@ -40,9 +40,9 @@ function CardProfile() {
         <a href="https://www.gononsense.in" target="_blank" rel="noreferrer">
           <Icon image={require("../assets/Icons/4.png")} title={"WEBSITE"} />
         </a>
-        {/* <a href="https://wa.me/919409648832">
+        <a href="https://www.google.com/maps/place/Nonsense+Store/@23.0499502,72.5285712,17z/data=!3m1!4b1!4m5!3m4!1s0x395e85c6c7694c3f:0x132c700e86efab95!8m2!3d23.0499453!4d72.5307599">
           <Icon image={require("../assets/Icons/5.png")} title={"LOCATION"} />
-          </a> */}
+        </a>
       </div>
       <div className="outerButton">
         <a
@@ -82,7 +82,7 @@ function CardProfile() {
             />{" "}
           </a>
           <a
-            href="https://youtube.com/channel/UCBLPvx1sDXJdR8Xk8uPtOmQ"
+            href="https://mobile.twitter.com/GoNonsense"
             target="_blank"
             rel="noreferrer"
           >
@@ -93,7 +93,7 @@ function CardProfile() {
             />{" "}
           </a>
           <a
-            href="https://mobile.twitter.com/GoNonsense"
+            href="https://youtube.com/channel/UCBLPvx1sDXJdR8Xk8uPtOmQ"
             target="_blank"
             rel="noreferrer"
           >
