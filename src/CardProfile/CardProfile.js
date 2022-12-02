@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CardProfile.css";
+import { useLocation } from "react-router-dom";
+import _ from "lodash";
+import { API_URL, USER_DETAILS } from "../constants/constants";
+import Loading from "../Loading/Loading.js";
+
+import FileSaver from "file-saver";
+
+import axios from "axios";
 
 const Icon = ({ image, title }) => {
   return (
@@ -11,7 +19,48 @@ const Icon = ({ image, title }) => {
 };
 
 function CardProfile() {
-  return (
+  const location = useLocation();
+  const [profile, setProfile] = useState({});
+  const [showLoader, setShowLoader] = useState(true);
+  const [showError, setShowError] = useState(false);
+  useEffect(() => {
+    const id = _.last(location.pathname.split("/"));
+    axios
+      .get(API_URL + USER_DETAILS, { params: { id } })
+      .then((res) => {
+        setProfile(_.first(res.data));
+        setShowLoader(false);
+      })
+      .catch((err) => {
+        setShowError(true);
+        setShowLoader(false);
+      });
+  }, [location]);
+
+  const downloadVCF = (e) => {
+    e.preventDefault();
+    var file = new Blob(
+      [
+        `BEGIN:VCARD
+VERSION:3.0
+N:${profile.name};${""};;;
+FN:${profile.name}
+TITLE:${""};
+EMAIL;type=INTERNET;type=pref:${profile.emailid}
+TEL;type=MAIN:${profile.number}
+TEL;type=CELL;type=VOICE;type=pref:${profile.number}
+ADR;type=WORK;type=pref:;;;${" "};;;
+END:VCARD
+`,
+      ],
+      { type: "text/vcard;charset=utf-8" }
+    );
+    FileSaver.saveAs(file, `${profile.name}.vcf`, true);
+  };
+
+  return showLoader ? (
+    <Loading />
+  ) : (
     <div className="profileContainer">
       <div className="imageContainer">
         <img
@@ -20,36 +69,51 @@ function CardProfile() {
           alt="img"
         />
       </div>
-      <div className="profileName">Yash Shah</div>
-      <div className="designation">CEO and Founder</div>
-      <div className="companyName">Nonsense Store</div>
+      {profile.name && <div className="profileName">{profile.name}</div>}
+      {profile.Designation && (
+        <div className="designation">{profile.Designation}</div>
+      )}
+      {profile.company_name && (
+        <div className="companyName">{profile.company_name}</div>
+      )}
       <div className="icons">
-        <a href="tel:919409648832" target="_blank" rel="noreferrer">
-          <Icon image={require("../assets/Icons/1.png")} title={"CALL"} />
-        </a>
-        <a href="https://wa.me/919409648832" target="_blank" rel="noreferrer">
-          <Icon image={require("../assets/Icons/2.png")} title={"WHATSAPP"} />
-        </a>
-        <a
-          href="https://mail.google.com/mail/?view=cm&fs=1&to=marketing@gononsense.in"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Icon image={require("../assets/Icons/3.png")} title={"MAIL"} />
-        </a>
-        <a href="https://www.gononsense.in" target="_blank" rel="noreferrer">
-          <Icon image={require("../assets/Icons/4.png")} title={"WEBSITE"} />
-        </a>
-        <a href="https://www.google.com/maps/place/Nonsense+Store/@23.0499502,72.5285712,17z/data=!3m1!4b1!4m5!3m4!1s0x395e85c6c7694c3f:0x132c700e86efab95!8m2!3d23.0499453!4d72.5307599">
-          <Icon image={require("../assets/Icons/5.png")} title={"LOCATION"} />
-        </a>
+        {profile.number && (
+          <a href={`tel:${profile.number}`} target="_blank" rel="noreferrer">
+            <Icon image={require("../assets/Icons/1.png")} title={"CALL"} />
+          </a>
+        )}
+        {profile.whatsapp && (
+          <a href={profile.whatsapp} target="_blank" rel="noreferrer">
+            <Icon image={require("../assets/Icons/2.png")} title={"WHATSAPP"} />
+          </a>
+        )}
+        {profile.emailid && (
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.emailid}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Icon image={require("../assets/Icons/3.png")} title={"MAIL"} />
+          </a>
+        )}
+        {profile.website && (
+          <a href={profile.website} target="_blank" rel="noreferrer">
+            <Icon image={require("../assets/Icons/4.png")} title={"WEBSITE"} />
+          </a>
+        )}
+        {profile.map && (
+          <a href={profile.map}>
+            <Icon image={require("../assets/Icons/5.png")} title={"LOCATION"} />
+          </a>
+        )}
       </div>
       <div className="outerButton">
         <a
-          href={require("../assets/contact.vcf")}
-          download
+          // href={require("../assets/contact.vcf")}
+          // download
           className="buttonContainer"
           rel="noreferrer"
+          onClick={downloadVCF}
         >
           <img
             src={require("../assets/Icons/6.png")}
@@ -59,63 +123,53 @@ function CardProfile() {
           <div className="contactTitle">ADD TO CONTACT</div>
         </a>
         <div className="icons">
-          <a
-            href="https://instagram.com/officially_nonsense?igshid=YmMyMTA2M2Y="
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src={require("../assets/Icons/7.png")}
-              height="45px"
-              alt="img"
-            />{" "}
-          </a>
-          <a
-            href="https://m.facebook.com/officially.nonsense/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src={require("../assets/Icons/8.png")}
-              height="45px"
-              alt="img"
-            />{" "}
-          </a>
-          <a
-            href="https://mobile.twitter.com/GoNonsense"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img
-              src={require("../assets/Icons/9.png")}
-              height="45px"
-              alt="img"
-            />{" "}
-          </a>
-          <a
-            href="https://youtube.com/channel/UCBLPvx1sDXJdR8Xk8uPtOmQ"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <img
-              src={require("../assets/Icons/10.png")}
-              height="45px"
-              alt="img"
-            />{" "}
-          </a>
-          <a
-            href="https://www.linkedin.com/in/nonsense-store-56594a219"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            <img
-              src={require("../assets/Icons/11.png")}
-              height="45px"
-              alt="img"
-            />{" "}
-          </a>
+          {profile.instagram && (
+            <a href={profile.instagram} target="_blank" rel="noreferrer">
+              <img
+                src={require("../assets/Icons/7.png")}
+                height="45px"
+                alt="img"
+              />{" "}
+            </a>
+          )}
+          {profile.facebook && (
+            <a href={profile.facebook} target="_blank" rel="noreferrer">
+              <img
+                src={require("../assets/Icons/8.png")}
+                height="45px"
+                alt="img"
+              />{" "}
+            </a>
+          )}
+          {profile.twitter && (
+            <a href={profile.twitter} target="_blank" rel="noreferrer">
+              <img
+                src={require("../assets/Icons/9.png")}
+                height="45px"
+                alt="img"
+              />{" "}
+            </a>
+          )}
+          {profile.youtube && (
+            <a href={profile.youtube} target="_blank" rel="noreferrer">
+              {" "}
+              <img
+                src={require("../assets/Icons/10.png")}
+                height="45px"
+                alt="img"
+              />{" "}
+            </a>
+          )}
+          {profile.linkedin && (
+            <a href={profile.linkedin} target="_blank" rel="noreferrer">
+              {" "}
+              <img
+                src={require("../assets/Icons/11.png")}
+                height="45px"
+                alt="img"
+              />{" "}
+            </a>
+          )}
         </div>
       </div>
       <div className="poweredBy">POWERED BY</div>

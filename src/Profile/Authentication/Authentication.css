@@ -1,0 +1,62 @@
+.AuthenticationContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 60px;
+}
+
+.titleContainer{
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    padding-top: 20px;
+    align-items: center;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.detailsContainer{
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    width: 90%;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.inputTitle {
+    font-weight: 600;
+}
+
+.inputBox {
+    border: 0px;
+    background-color: transparent;
+    border-bottom: 1px solid white;
+    font-size: 1rem;
+    color: white;
+}
+
+.loginButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-size: 1.2rem;
+    padding: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.buttonParent{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}

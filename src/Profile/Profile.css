@@ -1,0 +1,15 @@
+.logoContainer{
+    display: flex;
+    padding-top:20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.editProfileContainer{
+    color: white;
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+}
