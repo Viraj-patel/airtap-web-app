@@ -11,10 +11,11 @@ import {
   USER_DETAILS,
 } from "../../constants/constants";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 
 const steps = ["personal_details", "company_details", "social_details"];
 
-function OtherStep() {
+function OtherStep({ history }) {
   const [index, setIndex] = useState(0);
 
   const [showLoader, setShowLoader] = useState(true);
@@ -36,11 +37,13 @@ function OtherStep() {
     linkedin: "",
   });
   const [file, setFile] = useState();
+  const [fileImage, setFileImage] = useState();
   const [fileName, setFileName] = useState("");
 
   const saveFile = (e) => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
+    setFileImage(URL.createObjectURL(e.target.files[0]));
   };
 
   const currentProfileDetails = _.find(profileDetails, { id: steps[index] });
@@ -51,6 +54,7 @@ function OtherStep() {
       .get(API_URL + USER_DETAILS, { params: { id } })
       .then((res) => {
         const data = _.first(res.data);
+        setFileImage(_.get(data, "profile_pic", ""));
         setProfile({
           ...profile,
           name: _.get(data, "name", ""),
@@ -82,6 +86,18 @@ function OtherStep() {
       ...profile,
       [id]: updatedvalue,
     });
+  };
+
+  const uploadFile = async (e) => {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("fileName", fileName);
+    try {
+      const res = await axios.post("http://localhost:4000/upload", formData);
+      console.log(res);
+    } catch (ex) {
+      console.log(ex);
+    }
   };
 
   const onSave = async (step) => {
@@ -149,6 +165,9 @@ function OtherStep() {
         .then((res) => {});
     }
     if (index != 2) setIndex(index + 1);
+    else {
+      history.push(`/profile/${localStorage.getItem("id")}`);
+    }
   };
 
   return (
@@ -160,12 +179,32 @@ function OtherStep() {
             <div className="inputContainer">
               <div className="inputTitle">{child.title}</div>
               {child.type == "file" ? (
-                <input
-                  type={child.type}
-                  className="inputBox"
-                  placeholder={child.placeholder}
-                  onChange={saveFile}
-                />
+                <>
+                  <img src={fileImage} className="profileImage" alt="img" />
+                  <label for="inputTag">
+                    <div
+                      style={{
+                        cursor: "pointer",
+                        backgroundColor: "white",
+                        color: "black",
+                        display: "flex",
+                        width: "fit-content",
+                        padding: "5px 20px",
+                        alignItems: "center",
+                      }}
+                    >
+                      Select image
+                    </div>
+                    <input
+                      id="inputTag"
+                      type={child.type}
+                      style={{ display: "none" }}
+                      placeholder={child.placeholder}
+                      onChange={saveFile}
+                      accept="image/png, image/jpg, image/gif, image/jpeg"
+                    />
+                  </label>
+                </>
               ) : (
                 <input
                   type={child.type}
@@ -199,4 +238,4 @@ function OtherStep() {
   );
 }
 
-export default OtherStep;
+export default withRouter(OtherStep);
