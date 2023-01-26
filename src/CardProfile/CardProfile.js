@@ -22,7 +22,6 @@ function CardProfile() {
   const location = useLocation();
   const [profile, setProfile] = useState({});
   const [showLoader, setShowLoader] = useState(true);
-  const [showError, setShowError] = useState(false);
   useEffect(() => {
     const id = _.last(location.pathname.split("/"));
     axios
@@ -32,7 +31,6 @@ function CardProfile() {
         setShowLoader(false);
       })
       .catch((err) => {
-        setShowError(true);
         setShowLoader(false);
       });
   }, [location]);
@@ -104,7 +102,7 @@ END:VCARD
         )}
       </div>
       <div className="outerButton">
-        <a
+        <div
           // href={require("../assets/contact.vcf")}
           // download
           className="buttonContainer"
@@ -117,7 +115,7 @@ END:VCARD
             alt="img"
           />
           <div className="contactTitle">ADD TO CONTACT</div>
-        </a>
+        </div>
         <div className="icons">
           {profile.instagram && (
             <a href={profile.instagram} target="_blank" rel="noreferrer">

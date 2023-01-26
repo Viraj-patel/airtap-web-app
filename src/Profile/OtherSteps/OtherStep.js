@@ -18,7 +18,7 @@ const steps = ["personal_details", "company_details", "social_details"];
 function OtherStep({ history }) {
   const [index, setIndex] = useState(0);
 
-  const [showLoader, setShowLoader] = useState(true);
+  // const [showLoader, setShowLoader] = useState(true);
   const [profile, setProfile] = useState({
     image: null,
     name: "",
@@ -72,36 +72,24 @@ function OtherStep({ history }) {
           twitter: _.get(data, "twitter", ""),
           linkedin: _.get(data, "linkedin", ""),
         });
-        setShowLoader(false);
+        // setShowLoader(false);
       })
       .catch((err) => {
-        setShowLoader(false);
+        // setShowLoader(false);
       });
   }, []);
 
   const updateProfile = (event, id, type) => {
     const updatedvalue =
-      type == "file" ? event.target.files[0] : event.target.value;
+      type === "file" ? event.target.files[0] : event.target.value;
     setProfile({
       ...profile,
       [id]: updatedvalue,
     });
   };
 
-  const uploadFile = async (e) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("fileName", fileName);
-    try {
-      const res = await axios.post("http://localhost:4000/upload", formData);
-      console.log(res);
-    } catch (ex) {
-      console.log(ex);
-    }
-  };
-
   const onSave = async (step) => {
-    if (step == "personal_details") {
+    if (step === "personal_details") {
       if (file) {
         // const formData = new FormData();
         // console.log(profile.image);
@@ -125,7 +113,7 @@ function OtherStep({ history }) {
           console.log(ex);
         }
       }
-      if (profile.number != "") {
+      if (profile.number !== "") {
         axios
           .post(API_URL + UPDATE_MOBILE_DETAILS, {
             id: localStorage.getItem("id"),
@@ -140,7 +128,7 @@ function OtherStep({ history }) {
           whatsapp: _.get(profile, "whatsapp", ""),
         })
         .then((res) => {});
-    } else if (step == "company_details") {
+    } else if (step === "company_details") {
       axios
         .post(API_URL + UPDATE_COMPANY_DETAILS, {
           id: localStorage.getItem("id"),
@@ -164,7 +152,7 @@ function OtherStep({ history }) {
         })
         .then((res) => {});
     }
-    if (index != 2) setIndex(index + 1);
+    if (index !== 2) setIndex(index + 1);
     else {
       history.push(`/profile/${localStorage.getItem("id")}`);
     }
@@ -178,7 +166,7 @@ function OtherStep({ history }) {
           return (
             <div className="inputContainer">
               <div className="inputTitle">{child.title}</div>
-              {child.type == "file" ? (
+              {child.type === "file" ? (
                 <>
                   <img src={fileImage} className="profileImage" alt="img" />
                   <label for="inputTag">
@@ -218,10 +206,10 @@ function OtherStep({ history }) {
           );
         })}
         <div className="buttonParent">
-          {index != 0 && (
+          {index !== 0 && (
             <div
               className="loginButtonContainer"
-              onClick={() => (index != 0 ? setIndex(index - 1) : null)}
+              onClick={() => (index !== 0 ? setIndex(index - 1) : null)}
             >
               Back
             </div>
@@ -230,7 +218,7 @@ function OtherStep({ history }) {
             className="loginButtonContainer"
             onClick={() => onSave(currentProfileDetails.id)}
           >
-            {index == 2 ? "Save" : "Save and Next"}
+            {index === 2 ? "Save" : "Save and Next"}
           </div>
         </div>
       </div>
