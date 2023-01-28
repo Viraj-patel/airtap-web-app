@@ -54,7 +54,9 @@ function OtherStep({ history }) {
       .get(API_URL + USER_DETAILS, { params: { id } })
       .then((res) => {
         const data = _.first(res.data);
-        setFileImage(_.get(data, "profile_pic", ""));
+        if (_.isEmpty(_.get(data, "profile_pic", "")))
+          setFileImage(API_URL + "default.jpeg");
+        else setFileImage(API_URL + _.get(data, "profile_pic", ""));
         setProfile({
           ...profile,
           name: _.get(data, "name", ""),

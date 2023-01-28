@@ -61,7 +61,11 @@ END:VCARD
   ) : (
     <div className="profileContainer">
       <div className="imageContainer">
-        <img src={profile.profile_pic} className="profileImage" alt="img" />
+        <img
+          src={API_URL + profile.profile_pic}
+          className="profileImage"
+          alt="img"
+        />
       </div>
       {profile.name && <div className="profileName">{profile.name}</div>}
       {profile.Designation && (
