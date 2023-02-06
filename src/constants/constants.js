@@ -1,4 +1,4 @@
-export const API_URL = "http://34.203.38.7/api/";
+export const API_URL = "http://52.3.220.35/api/";
 
 export const CHECK_LOGIN = "checkLogin";
 export const USER_DETAILS = "getUserDetails";
