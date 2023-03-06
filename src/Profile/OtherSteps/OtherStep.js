@@ -59,17 +59,25 @@ function OtherStep({ history }) {
         else setFileImage(API_URL + _.get(data, "profile_pic", ""));
         setProfile({
           ...profile,
-          name: _.get(data, "name", ""),
-          number: _.get(data, "number", ""),
-          whatsapp: _.get(data, "whatsapp", ""),
-          company_name: _.get(data, "company_name", ""),
-          designation: _.get(data, "Designation", ""),
-          emailid: _.get(data, "emailid", ""),
-          website: _.get(data, "website", ""),
-          address: _.get(data, "address", ""),
+          name: _.get(data, "name", "Yash shah"),
+          number: _.get(data, "number", "9409648832"),
+          whatsapp: _.get(data, "whatsapp", "wa.me/9409648832"),
+          company_name: _.get(data, "company_name", "Nonsense store"),
+          designation: _.get(data, "Designation", "Co-founder"),
+          emailid: _.get(data, "emailid", "yashshah@gmail.com"),
+          website: _.get(data, "website", "https://www.gononsense.in/"),
+          address: _.get(data, "address", "gurukul"),
           map: _.get(data, "map", ""),
-          instagram: _.get(data, "instagram", ""),
-          facebook: _.get(data, "facebook", ""),
+          instagram: _.get(
+            data,
+            "instagram",
+            "https://instagram.com/officially_nonsense"
+          ),
+          facebook: _.get(
+            data,
+            "facebook",
+            "https://facebook.com/officially_nonsense"
+          ),
           youtube: _.get(data, "youtube", ""),
           twitter: _.get(data, "twitter", ""),
           linkedin: _.get(data, "linkedin", ""),
