@@ -120,6 +120,28 @@ END:VCARD
           />
           <div className="contactTitle">ADD TO CONTACT</div>
         </div>
+        <div className={"docContainer"}>
+          {profile.documents && (
+            <a
+              href={profile.documents}
+              target="_blank"
+              rel="noreferrer"
+              className="buttonLink"
+            >
+              BROCHURE
+            </a>
+          )}
+          {profile.price && (
+            <a
+              href={profile.documents}
+              target="_blank"
+              rel="noreferrer"
+              className="buttonLink"
+            >
+              PRICE LIST
+            </a>
+          )}
+        </div>
         <div className="icons">
           {profile.instagram && (
             <a href={profile.instagram} target="_blank" rel="noreferrer">

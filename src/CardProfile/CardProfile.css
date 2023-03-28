@@ -103,3 +103,21 @@ a {
     font-size: 0.8rem;
     font-weight: 700;
 }
+
+.docContainer{
+    display: flex;
+    padding-top: 20px;
+    justify-content: space-between;
+    width: 90%;
+    column-gap: 20px;
+}
+
+.buttonLink{
+    background-color: black;
+    color: white;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
