@@ -1,0 +1,108 @@
+{
+  "body": [
+    [
+      {
+        "id": "image",
+        "type": "image"
+      }
+    ],
+    [
+      {
+        "id": "name",
+        "type": "header1"
+      }
+    ],
+    [
+      {
+        "id": "designation",
+        "type": "header2"
+      }
+    ],
+    [
+      {
+        "id": "company_name",
+        "type": "header3"
+      }
+    ],
+    [
+      {
+        "id": "call",
+        "type": "icon_with_label",
+        "label": "text"
+      },
+      {
+        "id": "whatsapp",
+        "type": "icon_with_label",
+        "label": "text"
+      },
+      {
+        "id": "mail",
+        "type": "icon_with_label",
+        "label": "text"
+      },
+      {
+        "id": "website",
+        "type": "icon_with_label",
+        "label": "text"
+      },
+      {
+        "id": "location",
+        "type": "icon_with_label",
+        "label": "text"
+      }
+    ],
+    [
+      {
+        "id": "contact_card",
+        "type": "button_icon_with_label",
+        "label": "text"
+      }
+    ],
+    [
+      {
+        "id": "brochure",
+        "type": "button",
+        "label": "text"
+      },
+      {
+        "id": "pricelist",
+        "type": "button",
+        "label": "text"
+      }
+    ],
+    [
+      {
+        "id": "insatgram",
+        "type": "icon_with_label"
+      },
+      {
+        "id": "facebook",
+        "type": "icon_with_label"
+      },
+      {
+        "id": "twitter",
+        "type": "icon_with_label"
+      },
+      {
+        "id": "youtube",
+        "type": "icon_with_label"
+      },
+      {
+        "id": "linkedin",
+        "type": "icon_with_label"
+      }
+    ],
+    [
+      {
+        "id": "footer_text",
+        "type": "header1",
+        "isEditable": false
+      },
+      {
+        "id": "logo",
+        "type": "company_logo",
+        "isEditable": false
+      }
+    ]
+  ]
+}
