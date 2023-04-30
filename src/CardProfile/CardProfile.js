@@ -133,7 +133,7 @@ END:VCARD
           )}
           {profile.price && (
             <a
-              href={profile.documents}
+              href={profile.price}
               target="_blank"
               rel="noreferrer"
               className="buttonLink"
