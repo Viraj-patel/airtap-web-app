@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Authentication from "./Authentication/Authentication";
 import OtherStep from "./OtherSteps/OtherStep";
+import EditProfile from "../EditProfile/EditProfile";
 import "./Profile.css";
 
 function Profile() {
@@ -14,7 +15,7 @@ function Profile() {
         {!isAuthenticated ? (
           <Authentication updateAuthentication={updateAuthentication} />
         ) : (
-          <OtherStep />
+          <EditProfile />
         )}
       </div>
       <div className="logoContainer">

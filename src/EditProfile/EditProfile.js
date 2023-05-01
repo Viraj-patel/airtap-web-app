@@ -12,6 +12,8 @@ function EditProfile() {
       <div className={classes.title}>Edit profile</div>
       <div className="detailsContainer">
         {_.map(children, (child) => {
+          if(child.editOnHide)return;
+          console.log(child)
           return (
             <div className="inputContainer">
                  
@@ -41,11 +43,12 @@ function EditProfile() {
                     //   onChange={saveFile}
                       accept="image/png, image/jpg, image/gif, image/jpeg"
                     />
+                    
                   </label>
                 </>
               ) : (
                 <input
-                  type={child.type}
+                  type={child.edit_type}
                   className="inputBox"
                   placeholder={child.placeholder}
                 //   value={profile[child.id]}

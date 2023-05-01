@@ -81,9 +81,9 @@
         "id": "contact_card",
         "type": "button_icon_with_label",
         "label": "Contact Card",
-
         "edit_type": "text",
-        "placeholder": "Enter contact card"
+        "placeholder": "Enter contact card",
+        "editOnHide":true
       }
     ],
     [
@@ -91,15 +91,13 @@
         "id": "brochure",
         "type": "button",
         "label": "Brochure",
-
         "edit_type": "text",
-        "placeholder": "Enter brochure"
+        "placeholder": "Enter brochure url"
       },
       {
         "id": "pricelist",
         "type": "button",
         "label": "Price List",
-
         "edit_type": "text",
         "placeholder": "Enter Pricelist"
       }
@@ -146,12 +144,14 @@
       {
         "id": "footer_text",
         "type": "header1",
-        "isEditable": false
+        "isEditable": false,
+        "editOnHide":true
       },
       {
         "id": "logo",
         "type": "company_logo",
-        "isEditable": false
+        "isEditable": false,
+        "editOnHide":true
       }
     ]
   ]

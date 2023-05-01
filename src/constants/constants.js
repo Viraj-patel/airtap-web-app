@@ -1,6 +1,7 @@
 export const API_URL = "https://airtap-backend.vercel.app/";
 
 export const CHECK_LOGIN = "checkLogin";
+export const CHECK_NEW_LOGIN = "checkNewLogin";
 export const USER_DETAILS = "getUserDetails";
 export const UPLOAD_IMAGE = "upload";
 export const UPDATE_PERSONAL_DETAILS = "personalDetails";

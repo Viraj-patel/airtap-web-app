@@ -1,6 +1,6 @@
 import _ from "lodash";
 import React, { useState, useEffect } from "react";
-import { API_URL, CHECK_LOGIN } from "../../constants/constants";
+import { API_URL, CHECK_LOGIN,CHECK_NEW_LOGIN } from "../../constants/constants";
 import "./Authentication.css";
 import axios from "axios";
 
@@ -12,9 +12,9 @@ function Authentication({ updateAuthentication }) {
   const checkLoginDetails = async () => {
     console.log(userId, password);
     axios
-      .post(API_URL + CHECK_LOGIN, { id: userId, password })
+      .post(API_URL + CHECK_NEW_LOGIN, { email_id: userId, password })
       .then((res) => {
-        console.log(res);
+       
         if (_.size(res.data) > 0) {
           updateAuthentication();
           localStorage.setItem("id", userId);
@@ -28,11 +28,17 @@ function Authentication({ updateAuthentication }) {
   };
 
   return (
+    <form  onSubmit={(e) => {
+      e.preventDefault();
+      checkLoginDetails();
+    }}>
     <div className="AuthenticationContainer">
       <div className="titleContainer">AIRIN TO YOUR PROFILE</div>
-      <div className="detailsContainer">
+      
+        
+        <div className="detailsContainer">
         <div className="inputContainer">
-          <div className="inputTitle">USER ID</div>
+          <div className="inputTitle">EMAIL ID</div>
           <input
             type="text"
             className="inputBox"
@@ -52,18 +58,19 @@ function Authentication({ updateAuthentication }) {
           />
         </div>
         <div className="buttonParent">
-          <div
+          <button
             className="loginButtonContainer"
-            onClick={() => {
-              checkLoginDetails();
-            }}
+            type="submit"
+           
           >
             AIRIN
-          </div>
+          </button>
         </div>
         {showError && <div> Invalid user id or password</div>}
       </div>
+      
     </div>
+    </form>
   );
 }
 
