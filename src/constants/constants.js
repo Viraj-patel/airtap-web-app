@@ -9,3 +9,4 @@ export const UPDATE_PERSONAL_DETAILS = "personalDetails";
 export const UPDATE_COMPANY_DETAILS = "companyDetails";
 export const UPDATE_SOCIAL_DETAILS = "socialDetails";
 export const UPDATE_MOBILE_DETAILS = "mobileDetails";
+export const UPDATE_DETAILS = "updateDetails";
