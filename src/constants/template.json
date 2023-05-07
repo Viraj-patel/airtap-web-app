@@ -159,5 +159,28 @@
         "editOnHide": true
       }
     ]
+  ],
+  "group": [
+    {
+      "includes" : [0],
+      "parent-class": "image-container"
+    },
+    {
+      "includes" : [1,2,3],
+      "parent-class": "profile-container"
+    },
+    {
+      "includes": [4],
+      "parent-class": "icons-container"
+    },
+    {
+      "includes": [5,6,7],
+      "parent-class": "buttons-container"
+    },
+    {
+      "includes": [8,9],
+      "parent-class": "footer-container"
+    }
   ]
 }
+
