@@ -29,7 +29,7 @@
       {
         "id": "company_name",
         "label": "Company Name",
-        "type": "icon_with_label",
+        "type": "header2",
         "edit_type": "text",
         "placeholder": "Enter Company Name"
       }
@@ -39,41 +39,41 @@
         "id": "call",
         "type": "icon_with_label",
         "label": "Mobile Number",
-
         "edit_type": "text",
-        "placeholder": "Enter mobile number"
+        "placeholder": "Enter mobile number",
+        "icon_url":"Icons/1.png"
       },
       {
         "id": "whatsapp",
         "type": "icon_with_label",
         "label": "Whatsapp Numebr",
-
         "edit_type": "text",
-        "placeholder": "Enter whatsapp number"
+        "placeholder": "Enter whatsapp number",
+        "icon_url":"Icons/2.png"
       },
       {
         "id": "mail",
         "type": "icon_with_label",
         "label": "Mail Id",
-
         "edit_type": "text",
-        "placeholder": "Enter mail id"
+        "placeholder": "Enter mail id",
+        "icon_url":"Icons/3.png"
       },
       {
         "id": "website",
         "type": "icon_with_label",
         "label": "Website",
-
         "edit_type": "text",
-        "placeholder": "Enter website"
+        "placeholder": "Enter website",
+        "icon_url":"Icons/4.png"
       },
       {
         "id": "location",
         "type": "icon_with_label",
         "label": "Location",
-
         "edit_type": "text",
-        "placeholder": "Enter Location"
+        "placeholder": "Enter Location",
+        "icon_url":"Icons/5.png"
       }
     ],
     [
@@ -83,7 +83,8 @@
         "label": "Contact Card",
         "edit_type": "text",
         "placeholder": "Enter contact card",
-        "editOnHide": true
+        "editOnHide": true,
+        "icon_url":"Icons/6.png"
       }
     ],
     [
@@ -107,37 +108,41 @@
         "id": "insatgram",
         "type": "icon_with_label",
         "label": "Instagram Url",
-
         "edit_type": "text",
-        "placeholder": "Enter Instagram Url"
+        "placeholder": "Enter Instagram Url",
+        "icon_url":"Icons/7.png"
       },
       {
         "id": "facebook",
         "type": "icon_with_label",
         "label": "Facebook Url",
         "edit_type": "text",
-        "placeholder": "Enter Facebook Url"
+        "placeholder": "Enter Facebook Url",
+        "icon_url":"Icons/8.png"
       },
       {
         "id": "twitter",
         "type": "icon_with_label",
         "label": "Twitter Url",
         "edit_type": "text",
-        "placeholder": "Enter Twitter Url"
+        "placeholder": "Enter Twitter Url",
+        "icon_url":"Icons/9.png"
       },
       {
         "id": "youtube",
         "type": "icon_with_label",
         "label": "Youtube Url",
         "edit_type": "text",
-        "placeholder": "Enter Youtube Url"
+        "placeholder": "Enter Youtube Url",
+        "icon_url":"Icons/10.png"
       },
       {
         "id": "linkedin",
         "type": "icon_with_label",
         "label": "Linkedin Url",
         "edit_type": "text",
-        "placeholder": "Enter Linkedin Url"
+        "placeholder": "Enter Linkedin Url",
+        "icon_url":"Icons/11.png"
       }
     ],
     [
@@ -154,5 +159,28 @@
         "editOnHide": true
       }
     ]
+  ],
+  "group": [
+    {
+      "includes" : [0],
+      "parent-class": "image-container"
+    },
+    {
+      "includes" : [1,2,3],
+      "parent-class": "profile-container"
+    },
+    {
+      "includes": [4],
+      "parent-class": "icons-container"
+    },
+    {
+      "includes": [5,6,7],
+      "parent-class": "buttons-container"
+    },
+    {
+      "includes": [8,9],
+      "parent-class": "footer-container"
+    }
   ]
 }
+
