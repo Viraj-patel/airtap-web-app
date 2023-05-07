@@ -1,0 +1,14 @@
+.container {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    row-gap: 20px;
+}
+
+.rowContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
