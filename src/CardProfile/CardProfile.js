@@ -41,13 +41,15 @@ function CardProfile() {
       [
         `BEGIN:VCARD
 VERSION:3.0
-N:${profile.name};${""};;;
-FN:${profile.name}
-TITLE:${""};
-EMAIL;type=INTERNET;type=pref:${profile.emailid}
-TEL;type=MAIN:${profile.number}
-TEL;type=CELL;type=VOICE;type=pref:${profile.number}
-ADR;type=WORK;type=pref:;;;${" "};;;
+N:${profile?.name};${""};;;
+FN:${profile?.name}
+TITLE:${profile.Designation};
+EMAIL;type=INTERNET;type=pref:${profile?.emailid}
+TEL;type=MAIN:${profile?.number}
+TEL;type=CELL;type=VOICE;type=pref:${profile?.number}
+ADR;type=WORK;type=pref:;;;${profile?.address};;;
+URL:${profile.website}
+ORG:${profile.company_name}
 END:VCARD
 `,
       ],
