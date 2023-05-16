@@ -38,53 +38,60 @@
       {
         "id": "call",
         "type": "icon_with_label",
+        "icon_label": "Call",
         "label": "Mobile Number",
         "edit_type": "text",
         "placeholder": "Enter mobile number",
-        "icon_url":"Icons/1.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265313/kar9uzxcghqeuq6rt1tt.png"
       },
       {
         "id": "whatsapp",
         "type": "icon_with_label",
+        "icon_label": "Whatsapp",
         "label": "Whatsapp Numebr",
         "edit_type": "text",
         "placeholder": "Enter whatsapp number",
-        "icon_url":"Icons/2.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265340/zxddyplbwimlerdgpkaj.png"
       },
       {
         "id": "mail",
         "type": "icon_with_label",
+        "icon_label": "Mail",
         "label": "Mail Id",
         "edit_type": "text",
         "placeholder": "Enter mail id",
-        "icon_url":"Icons/3.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265357/dabj5xlrrirgsx2ngkje.png"
       },
       {
         "id": "website",
         "type": "icon_with_label",
+        "icon_label": "Website",
         "label": "Website",
         "edit_type": "text",
         "placeholder": "Enter website",
-        "icon_url":"Icons/4.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265379/vkcxflr4ifoctco6wupu.png"
       },
       {
         "id": "location",
         "type": "icon_with_label",
+        "icon_label": "Location",
         "label": "Location",
         "edit_type": "text",
         "placeholder": "Enter Location",
-        "icon_url":"Icons/5.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265394/nefqenoracss7nwcve8p.png"
       }
     ],
     [
       {
         "id": "contact_card",
+        "skip_value": true,
         "type": "button_icon_with_label",
+        "button_label": "Add to contact",
         "label": "Contact Card",
         "edit_type": "text",
         "placeholder": "Enter contact card",
         "editOnHide": true,
-        "icon_url":"Icons/6.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265420/z9d7ehdqi1iae37yhbik.png"
       }
     ],
     [
@@ -106,81 +113,93 @@
     [
       {
         "id": "insatgram",
-        "type": "icon_with_label",
+        "type": "icon",
         "label": "Instagram Url",
         "edit_type": "text",
         "placeholder": "Enter Instagram Url",
-        "icon_url":"Icons/7.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265459/tjrfl7mfvo1osxx8pyqh.png"
       },
       {
         "id": "facebook",
-        "type": "icon_with_label",
+        "type": "icon",
         "label": "Facebook Url",
         "edit_type": "text",
         "placeholder": "Enter Facebook Url",
-        "icon_url":"Icons/8.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265477/iamik345hz8clnstwma3.png"
       },
       {
         "id": "twitter",
-        "type": "icon_with_label",
+        "type": "icon",
         "label": "Twitter Url",
         "edit_type": "text",
         "placeholder": "Enter Twitter Url",
-        "icon_url":"Icons/9.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265494/vcqogewrdpu2mchne8bg.png"
       },
       {
         "id": "youtube",
-        "type": "icon_with_label",
+        "type": "icon",
         "label": "Youtube Url",
         "edit_type": "text",
         "placeholder": "Enter Youtube Url",
-        "icon_url":"Icons/10.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265508/uefz7mxygc26i5h5c0hf.png"
       },
       {
         "id": "linkedin",
-        "type": "icon_with_label",
+        "type": "icon",
         "label": "Linkedin Url",
         "edit_type": "text",
         "placeholder": "Enter Linkedin Url",
-        "icon_url":"Icons/11.png"
+        "icon_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265526/wkfiidkoqk1jfxctjhux.png"
       }
     ],
     [
       {
         "id": "footer_text",
-        "type": "header1",
+        "type": "textView",
+        "text": "POWERED BY",
         "isEditable": false,
-        "editOnHide": true
-      },
+        "editOnHide": true,
+        "skip_value": true
+      }
+    ],
+    [
       {
         "id": "logo",
         "type": "company_logo",
         "isEditable": false,
-        "editOnHide": true
+        "editOnHide": true,
+        "skip_value": true,
+        "image_url": "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684265565/i4snhhxhvhip338n4w03.png"
       }
     ]
   ],
   "group": [
     {
-      "includes" : [0],
-      "parent-class": "image-container"
+      "includes": [0],
+      "styles": {}
     },
     {
-      "includes" : [1,2,3],
-      "parent-class": "profile-container"
+      "includes": [1, 2, 3],
+      "styles": {}
     },
     {
       "includes": [4],
-      "parent-class": "icons-container"
+      "styles": {}
     },
     {
-      "includes": [5,6,7],
-      "parent-class": "buttons-container"
+      "includes": [5, 6, 7],
+      "styles": {
+        "backgroundColor": "#e2e2e2",
+        "display": "flex",
+        "rowGap": "10px",
+        "flexDirection": "column",
+        "padding": "10px",
+        "paddingTop": "32px"
+      }
     },
     {
-      "includes": [8,9],
+      "includes": [8, 9],
       "parent-class": "footer-container"
     }
   ]
 }
-

@@ -14,6 +14,33 @@ function EditProfile({ history }) {
   const [profile, setProfile] = useState({});
   const [children, setChildren] = useState({});
 
+  const saveFile = (event, id, type) => {
+    const uploadPreset = "Airtap";
+    // Replace 'YOUR_CLOUD_NAME' with your Cloudinary cloud name
+    const cloudName = "YOUR_CLOUD_NAME";
+    const formData = new FormData();
+    formData.append("file", event.target.files[0]);
+    formData.append("upload_preset", uploadPreset);
+
+    fetch(`https://api.cloudinary.com/v1_1/dkrlw4xoa/image/upload`, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.secure_url);
+        setProfile({
+          ...profile,
+          [id]: data.secure_url,
+        });
+        // Do something with the uploaded image data
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        // Handle error
+      });
+  };
+
   const updateProfile = (event, id, type) => {
     const updatedvalue =
       type === "file" ? event.target.files[0] : event.target.value;
@@ -57,7 +84,7 @@ function EditProfile({ history }) {
         obj: profile,
       })
       .then((res) => {
-        history.push(`/profile/${localStorage.getItem("id")}`);
+        history.push(`/${localStorage.getItem("id")}`);
       })
       .catch((err) => {
         console.log(err);
@@ -77,7 +104,14 @@ function EditProfile({ history }) {
                 <div className={classes.inputTitle}>{child.label}</div>
                 {child.edit_type === "file" ? (
                   <>
-                    <img className="profileImage" alt="img" />
+                    <img
+                      className="profileImage"
+                      alt="img"
+                      src={
+                        profile[child.id] ||
+                        "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684260588"
+                      }
+                    />
                     <label for="inputTag">
                       <div
                         style={{
@@ -94,10 +128,10 @@ function EditProfile({ history }) {
                       </div>
                       <input
                         id="inputTag"
-                        type={child.type}
+                        type={"file"}
                         style={{ display: "none" }}
                         placeholder={child.placeholder}
-                        //   onChange={saveFile}
+                        onChange={(e) => saveFile(e, child.id, child.type)}
                         accept="image/png, image/jpg, image/gif, image/jpeg"
                       />
                     </label>
