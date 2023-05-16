@@ -10,7 +10,7 @@ export default function Routing() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Profile} />
+          <Route path="/" exact component={EditProfile} />
           <Route path="/editProfile" component={Profile} />
           <Route path="/profile/:id" component={CardProfile} />
           <Route path="/newEditprofile" component={EditProfile} />

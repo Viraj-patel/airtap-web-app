@@ -16,7 +16,15 @@ const Icon = ({ image, title }) => {
 };
 
 const ImageComponent = ({ value }) => {
-  return <img src={value} className="profileImage" alt="img" />;
+  return (
+    <img
+      src={
+        value || "https://res.cloudinary.com/dkrlw4xoa/image/upload/v1684260588"
+      }
+      className="profileImage"
+      alt="img"
+    />
+  );
 };
 
 const Header1 = ({ value }) => {
