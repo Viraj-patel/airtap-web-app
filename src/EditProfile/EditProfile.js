@@ -51,6 +51,12 @@ function EditProfile({ history }) {
   };
 
   useEffect(() => {
+    return () => {
+      localStorage.clear();
+    };
+  }, []);
+
+  useEffect(() => {
     const id = localStorage.getItem("id");
     axios
       .get(API_URL + NEW_USER_DETAILS, { params: { unique_id: id } })
