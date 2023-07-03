@@ -13,6 +13,7 @@ export default function Routing() {
           <Route path="/editProfile" component={Profile} />
           <Route path="/profile/:id" component={CardProfile} />
           <Route path="/newEditprofile" component={EditProfile} />
+    <Route path="/:id" component={CardProfile} />
         </Switch>
       </BrowserRouter>
     </div>
